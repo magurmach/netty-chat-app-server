@@ -1,6 +1,6 @@
 package me.magurmach.netty.chatapp.server;
 
-import me.magurmach.netty.chatapp.server.exampleserver.DiscardServer;
+import me.magurmach.netty.chatapp.server.chatserver.services.ChatServerAppExecutorService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -9,9 +9,12 @@ import org.apache.logging.log4j.Logger;
  */
 public class MainClass {
     private static Logger LOG = LogManager.getLogger(MainClass.class);
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         int port = 8080;
         LOG.info("Port set to be {}", port);
-        new DiscardServer(port).run();
+        ChatServerAppExecutorService chatServerAppExecutorService = new ChatServerAppExecutorService();
+        chatServerAppExecutorService.startNewServer(port);
+        chatServerAppExecutorService.startPortmanService();
+        chatServerAppExecutorService.shutdown();
     }
 }
