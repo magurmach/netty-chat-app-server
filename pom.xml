@@ -12,6 +12,14 @@
     <artifactId>netty-chatapp-server</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <dependencies>
+        <dependency>
+            <groupId>me.magurmach.netty.chatapp</groupId>
+            <artifactId>chatapp-messages</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>
