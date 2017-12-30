@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
 
 /**
  * Created by Shakib Ahmed on 12/27/17.
@@ -16,7 +17,7 @@ public class MailboxService {
     private BlockingQueue<MailboxedOutgoingServerChatMessage> messageQueue;
 
     public MailboxService() {
-        messageQueue = new ArrayBlockingQueue<>(1000000);
+        messageQueue = new LinkedBlockingQueue<>();
     }
 
     public void addMessageInMailbox(MailboxedOutgoingServerChatMessage outgoingMessage) {
